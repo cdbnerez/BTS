@@ -62,4 +62,26 @@ class User extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Logs::className(), ['User_id' => 'id']);
     }
+
+
+    public static function findIdentity($id)
+    {
+        $user = User::findOne($id);
+            if(count($user))
+            {
+                return new static($user);
+            }
+        return null;
+    }
+
+    public static function findByUsername($username)
+    {
+        $user = User::find()->where(['username'=>$username])->one();
+        if(count($user)){
+            return new static($user);
+        }
+        return null;
+    }
+
+
 }

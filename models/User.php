@@ -63,8 +63,6 @@ class User extends \yii\db\ActiveRecord
         return $this->hasMany(Logs::className(), ['User_id' => 'id']);
     }
 
-
-	
 	public function getUFullname()
 	{
 		return $this->user_lname . ', ' . $this->user_fname;

@@ -46,10 +46,10 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_lname' => 'User Lname',
-            'user_fname' => 'User Fname',
-            'user_type' => 'User Type',
-            'user_pic' => 'User Pic',
+            'user_lname' => "User's Last Name",
+            'user_fname' => "User's First Name",
+            'user_type' => 'Type of User',
+            'user_pic' => 'Profile Picture',
             'username' => 'Username',
             'password' => 'Password',
         ];

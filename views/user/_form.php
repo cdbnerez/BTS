@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_fname')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'user_type')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'user_type')->dropDownList(['Administrator' => 'Administrator', 'Standard User' => 'Standard User'],['prompt'=>'Select User Type']) ?>
 
     <?= $form->field($model, 'user_pic')->textInput(['maxlength' => true]) ?>
 

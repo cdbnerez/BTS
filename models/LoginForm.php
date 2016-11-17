@@ -12,7 +12,7 @@ use app\models\User;
  * @property User|null $user This property is read-only.
  *
  */
-class LoginForm extends \yii\db\ActiveRecord
+class LoginForm extends Model
 {
     public $username;
     public $password;
@@ -28,11 +28,11 @@ class LoginForm extends \yii\db\ActiveRecord
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
+            [['user_username', 'user_pass'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['user_pass', 'validatePassword'],
         ];
     }
 

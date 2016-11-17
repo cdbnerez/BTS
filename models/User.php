@@ -12,14 +12,14 @@ use Yii;
  * @property string $user_fname
  * @property string $user_type
  * @property string $user_pic
- * @property string $user_username
- * @property string $user_pass
+ * @property string $username
+ * @property string $password
  *
  * @property Logs[] $logs
  */
 class User extends \yii\db\ActiveRecord
 {
-    /** 
+    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -33,9 +33,9 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_lname', 'user_fname', 'user_username', 'user_pass'], 'required'],
+            [['user_lname', 'user_fname', 'username', 'password'], 'required'],
             [['user_lname', 'user_fname'], 'string', 'max' => 50],
-            [['user_type', 'user_pic', 'user_username', 'user_pass'], 'string', 'max' => 45],
+            [['user_type', 'user_pic', 'username', 'password'], 'string', 'max' => 45],
         ];
     }
 
@@ -46,12 +46,12 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_lname' => "User's Last Name",
-            'user_fname' => "User's First Name",
+            'user_lname' => 'User Lname',
+            'user_fname' => 'User Fname',
             'user_type' => 'User Type',
-            'user_pic' => 'Profile Picture',
-            'user_username' => 'Username',
-            'user_pass' => 'Passowrd',
+            'user_pic' => 'User Pic',
+            'username' => 'Username',
+            'password' => 'Password',
         ];
     }
 
@@ -62,9 +62,4 @@ class User extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Logs::className(), ['User_id' => 'id']);
     }
-
-	public function getUFullname()
-	{
-		return $this->user_lname . ', ' . $this->user_fname;
-	}
 }
